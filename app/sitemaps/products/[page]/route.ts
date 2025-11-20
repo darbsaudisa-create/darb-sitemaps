@@ -29,15 +29,24 @@ function productToUrlXml(p: Product): string {
   const loc = p.product_url || STORE_BASE_URL;
   const lastmod = getLastmod(p);
 
+  // 👇 نتأكد من رابط الصورة قبل ما نضيف بلوك image
+  const rawImage = (p.image_url || "").trim();
+  const hasValidImage =
+    rawImage.startsWith("http://") || rawImage.startsWith("https://");
+
+  const imageBlock = hasValidImage
+    ? `
+      <image:image>
+        <image:loc>${escapeXml(rawImage)}</image:loc>
+      </image:image>`
+    : "";
+
   return `
     <url>
       <loc>${escapeXml(loc)}</loc>
       <lastmod>${lastmod}</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-      <image:image>
-        <image:loc>${escapeXml(p.image_url)}</image:loc>
-      </image:image>
+      <priority>0.8</priority>${imageBlock}
     </url>
   `.trim();
 }
