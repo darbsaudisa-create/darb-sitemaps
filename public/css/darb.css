@@ -60,7 +60,7 @@ body {
 }
 
 .hero-filter-head {
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   font-weight: 900;
   color: #fff;
   margin-bottom: 6px;
@@ -756,6 +756,21 @@ label:has(.section-multicheck:checked) span,
   user-select: none;
 }
 
+/* multi selected items */
+.choices__list--multiple .choices__item {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 29px;
+  background: linear-gradient(90deg, #e5202a 70%, #d50026 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 2px 8px;
+  margin: 8px 4px 0 0;
+  border: 0;
+  box-shadow: 0 1px 6px #e5202a11;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
 .choices__list--multiple .choices__item.is-highlighted {
   background: #d50026;
 }
@@ -1385,30 +1400,4 @@ body {
     padding: 14px 20px;
     min-width: 88px;
   }
-}
-.choices__list--multiple .choices__item.is-highlighted {
-  background-color: #ef4444;
-  border: 1px solid #ff6767;
-}
-.choices__list--multiple .choices__item {
-  display: inline-block;
-  vertical-align: text-top;
-  border-radius: 15px;
-  padding: 0px 0px;
-  font-size: 9px;
-  font-weight: 500;
-  margin-right: 3.75px;
-  margin-bottom: 3.75px;
-  background-color: #d00025;
-  border: 0px solid #91a0a3;
-  color: #fff;
-  word-break: break-all;
-  box-sizing: border-box;
-}
-.choices__list--multiple .choices__item[data-deletable] {
-  padding-right: 0px;
-}
-[dir="rtl"] .choices__list--multiple .choices__item {
-  margin-right: 8px;
-  margin-left: 0px;
 }
