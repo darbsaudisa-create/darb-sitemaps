@@ -16,6 +16,9 @@ type RawProduct = {
   item_group_id?: string; // اختياري
   updated_at?: string; // لو جاي من مصدر ثاني، وإلا نخليه فاضي
 
+  // وزن الشحن كما هو من JSON (مثال: "4 kg")
+  shipping_weight?: string; // 👈 أضفنا هذا
+
   // نخليهم اختياريين عشان لو يوم حبيت تضيفهم من الإكسل
   description?: string;
   product_url?: string;
@@ -84,5 +87,8 @@ export const PRODUCTS: Product[] = rawProducts.map((p) => {
     section_name: p.section_name,
     item_group_id: p.item_group_id,
     updated_at: p.updated_at,
+
+    // 👈 هنا نمرّر وزن الشحن كما هو من data/products.json
+    shipping_weight: p.shipping_weight,
   };
 });
