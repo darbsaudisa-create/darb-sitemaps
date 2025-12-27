@@ -149,6 +149,13 @@ function productToItemXml(p: Product): string {
           ? `<g:item_group_id>${escapeXml(p.item_group_id)}</g:item_group_id>`
           : ""
       }
+      ${
+        p.shipping_weight
+          ? `<g:shipping_weight>${escapeXml(
+              p.shipping_weight
+            )}</g:shipping_weight>`
+          : ""
+      }
     </item>
   `.trim();
 }

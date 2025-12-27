@@ -13,4 +13,5 @@ export type Product = {
   section_name?: string;
   item_group_id?: string;
   updated_at?: string;
+  shipping_weight?: string; // 👈 هذا الجديد
 };
