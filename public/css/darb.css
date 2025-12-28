@@ -1340,6 +1340,7 @@ body {
     transform: scale(1);
   }
 }
+
 .popup-selected-options .selected-tag button {
   background: rgba(255, 255, 255, 0.25);
   border: none;
