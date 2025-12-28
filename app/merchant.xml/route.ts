@@ -130,7 +130,7 @@ function productToItemXml(p: Product): string {
     <item>
       <g:id>${escapeXml(p.id)}</g:id>
       <g:title>${escapeXml(p.title)}</g:title>
-      <g:description>${escapeXml(p.description)}</g:description>
+      
       <g:link>${escapeXml(link)}</g:link>
       <g:image_link>${escapeXml(image)}</g:image_link>
       <g:availability>${escapeXml(p.availability)}</g:availability>
