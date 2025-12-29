@@ -1,4 +1,4 @@
- /*******************************************************
+/*******************************************************
 * RESET بسيط عشان نمنع الخرابيط في الريسبونسف
 *******************************************************/
 *,
@@ -1399,5 +1399,134 @@ body {
     font-size: 14px;
     padding: 12px 17px;
     min-width: 87px;
+  }
+}
+
+/* =========================
+   DARB — Quick View Modal (Polish)
+   Targets: #quickview and .product-quickview
+   ========================= */
+
+/* Overlay: غامق خفيف بدل الأزرق المزعج */
+#quickview.quickview.show-show-content .quickview__overlay,
+#quickview .quickview__overlay {
+  background: rgba(2, 6, 23, 0.55) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+/* المحتوى الرئيسي */
+#quickview .quickview__content.circle,
+#quickview .quickview__content {
+  border-radius: 22px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(2, 6, 23, 0.1) !important;
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28) !important;
+  overflow: hidden !important;
+}
+
+/* زر الإغلاق: واضح وكبير */
+#quickview .quickview__btn-close {
+  top: 14px !important;
+  right: 14px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 999px !important;
+  background: rgba(2, 6, 23, 0.06) !important;
+  border: 1px solid rgba(2, 6, 23, 0.12) !important;
+  color: #0b1220 !important;
+  transition: transform 0.15s ease, background 0.15s ease !important;
+}
+#quickview .quickview__btn-close:hover {
+  background: rgba(2, 6, 23, 0.1) !important;
+  transform: scale(1.04) !important;
+}
+
+/* اجعل المحتوى صفين: صورة + معلومات */
+#quickview .product-quickview > div.pw.flex {
+  gap: 18px !important;
+  padding: 18px !important;
+}
+
+/* عمود الصورة */
+#quickview .product-quickview .pw.flex > .pw.flex {
+  flex: 1 1 52% !important;
+  min-width: 320px !important;
+}
+#quickview .product-quickview .product-quickview__img,
+#quickview .product-quickview img {
+  border-radius: 18px !important;
+}
+
+/* عمود المعلومات */
+#quickview .product-quickview .quickview-single-info {
+  flex: 1 1 48% !important;
+  min-width: 320px !important;
+}
+
+/* عنوان المنتج */
+#quickview .product-quickview h1,
+#quickview .product-quickview .product-title,
+#quickview .product-quickview .title {
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+  font-weight: 900 !important;
+  color: #0b1220 !important;
+  margin: 4px 0 10px !important;
+}
+
+/* السعر */
+#quickview .product-quickview .price,
+#quickview .product-quickview .main-price,
+#quickview .product-quickview .product-price {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #e11d48 !important; /* أحمر جميل */
+}
+
+/* شارات/التقييم */
+#quickview .product-quickview .badge,
+#quickview .product-quickview .tag,
+#quickview .product-quickview .rating {
+  border-radius: 999px !important;
+}
+
+/* حقول الخيارات: أنعم */
+#quickview .product-quickview select,
+#quickview .product-quickview input,
+#quickview .product-quickview textarea {
+  border-radius: 14px !important;
+  border: 1px solid rgba(2, 6, 23, 0.12) !important;
+  background: #fff !important;
+}
+
+/* زر إضافة للسلة داخل البوب اب */
+#quickview .product-quickview button,
+#quickview .product-quickview .s-button-element,
+#quickview .product-quickview .s-button-btn {
+  border-radius: 14px !important;
+  font-weight: 900 !important;
+}
+
+/* زر إضافة: أغمق شوي */
+#quickview .product-quickview .s-button-primary,
+#quickview .product-quickview .s-button-primary-outline {
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.12) !important;
+}
+
+/* موبايل: خليها عمود */
+@media (max-width: 820px) {
+  #quickview .product-quickview > div.pw.flex {
+    flex-direction: column !important;
+    padding: 14px !important;
+  }
+  #quickview .product-quickview .pw.flex > .pw.flex,
+  #quickview .product-quickview .quickview-single-info {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  #quickview .quickview__btn-close {
+    top: 10px !important;
+    right: 10px !important;
   }
 }
