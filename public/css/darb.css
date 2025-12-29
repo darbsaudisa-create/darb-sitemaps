@@ -1007,7 +1007,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #fafafa;
+  color: #111;
+  overflow-x: hidden;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .popup-open-btn {
   position: fixed;
