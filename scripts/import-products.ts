@@ -61,6 +61,30 @@ function parsePrice(value?: string): number | undefined {
   return num;
 }
 
+/**
+ * تحويل نص الوزن إلى صيغة يفهمها Google:
+ * "2 kg", "1.5 kg"
+ */
+function parseShippingWeight(value?: string): string | undefined {
+  if (!value) return undefined;
+
+  let v = value.trim();
+  if (!v) return undefined;
+
+  // نستخرج الجزء الرقمي فقط
+  let numberPart = v
+    .replace(/[^\d,٫،.]/g, "") // نخلي أرقام + فواصل
+    .replace(/[,٫،]/g, "."); // نحول الفواصل إلى نقطة
+
+  if (!numberPart) return undefined;
+
+  const num = Number(numberPart);
+  if (!Number.isFinite(num)) return undefined;
+
+  const unit = "kg"; // نستخدم kg كافتراضي
+  return `${num} ${unit}`;
+}
+
 async function main() {
   // مسار ملف CSV اللي تصدّره من الإكسل
   const csvPath = path.join(process.cwd(), "products.csv");
@@ -156,6 +180,11 @@ async function main() {
 
       const item_group_id = getField(row, ["item_group_id"]) || undefined;
 
+      // ===== وزن الشحن =====
+      const rawWeight =
+        getField(row, ["shipping_weight", "weight", "وزن"]) || "";
+      const shipping_weight = parseShippingWeight(rawWeight);
+
       return {
         id,
         title,
@@ -167,6 +196,7 @@ async function main() {
         sale_price_net,
         currency: currency as "SAR",
         item_group_id,
+        shipping_weight,
         // description / product_url / updated_at نخليها للكود داخل Next
       };
     })
